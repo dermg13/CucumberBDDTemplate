@@ -26,3 +26,13 @@ Feature: homepage related scenarios
       #US005 Verify link texts under Information footer are displayed
 
       #US006 Verify social media buttons take you to correct page
+
+      #Create your branch
+      # git branch "Name"
+      # git checkout Name
+      # git pull origin master
+
+      #git checkout master
+      #git pull
+      #git checkout Name
+      #git pull origin master
