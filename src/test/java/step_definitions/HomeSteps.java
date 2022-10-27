@@ -26,10 +26,12 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.getDriver();
     }
 
+
     @Then("Verify title of page")
     public void verify_title_of_page() {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), "My Store");
     }
+
 
     @When("User clicks on search field")
     public void userClicksOnSearchField() {
@@ -47,8 +49,23 @@ public class HomeSteps implements CommonPage {
     }
 
 
+
     @Then("verify my account {string} are diplayed")
     public void verifyMyAccountAreDiplayed(String link) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, link))));
     }
 }
+
+    @When("User clicks on {string} button")
+    public void userClicksOnButton(String seleniumBtn) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(
+                By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, seleniumBtn))
+        ));
+    }
+
+    @Then("Verify title of page is {string}")
+    public void verifyTitleOfPageIs(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
+}
+
