@@ -15,4 +15,6 @@ public class HomePage {
 
     @FindBy (name="submit_search")
     public WebElement searchBtn;
+
+
 }

@@ -12,3 +12,14 @@ Feature: homepage related scenarios
       When User clicks on search field
       And User enters something in field
       Then Verify search button is enabled
+
+    @US004
+    Scenario Outline: Home page verify my account links with scenario outline
+      Given User opens url of homepage
+    Then verify my account "<links>" are diplayed
+      Examples:
+      |links|
+      |My orders|
+      |My credit slips|
+      |My addresses   |
+      |My personal info|
