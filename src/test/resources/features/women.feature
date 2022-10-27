@@ -1,5 +1,6 @@
 Feature: Women page scenarios
-  Background: Given User opens url of homepage
+  Background:
+    Given User opens url of homepage
 
     @US004b
     Scenario Outline: Verify my account links are displayed on Women page
