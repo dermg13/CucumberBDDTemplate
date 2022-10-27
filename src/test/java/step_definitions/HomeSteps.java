@@ -9,10 +9,15 @@ import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
 
+import java.util.List;
+
+import static pages.CommonPage.XPATH_TEMPLATE_INPUT_FIELD;
+import static pages.CommonPage.XPATH_TEMPLATE_LINKTEXT;
+
 public class HomeSteps implements CommonPage {
     HomePage page;
 
-    public HomeSteps(){
+    public HomeSteps() {
         page = new HomePage();
     }
 
@@ -20,6 +25,13 @@ public class HomeSteps implements CommonPage {
     public void user_opens_url_of_homepage() {
         BrowserUtils.getDriver();
     }
+
+
+    @Then("Verify title of page")
+    public void verify_title_of_page() {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), "My Store");
+    }
+
 
     @When("User clicks on search field")
     public void userClicksOnSearchField() {
@@ -36,6 +48,14 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.assertTrue(BrowserUtils.isEnabled(page.searchBtn));
     }
 
+
+
+    @Then("verify my account {string} are diplayed")
+    public void verifyMyAccountAreDiplayed(String link) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, link))));
+    }
+}
+
     @When("User clicks on {string} button")
     public void userClicksOnButton(String seleniumBtn) {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(
@@ -48,3 +68,4 @@ public class HomeSteps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
     }
 }
+

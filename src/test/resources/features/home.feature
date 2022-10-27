@@ -13,6 +13,18 @@ Feature: homepage related scenarios
       And User enters something in field
       Then Verify search button is enabled
 
+
+    @US004
+    Scenario Outline: Home page verify my account links with scenario outline
+      Given User opens url of homepage
+    Then verify my account "<links>" are diplayed
+      Examples:
+      |links|
+      |My orders|
+      |My credit slips|
+      |My addresses   |
+      |My personal info|
+
       #US003 Verify Selenium Framework button takes you to new page
       @US003
       Scenario: Verify Selenium Framework button works
@@ -36,3 +48,4 @@ Feature: homepage related scenarios
       #git pull
       #git checkout Name
       #git pull origin master
+
