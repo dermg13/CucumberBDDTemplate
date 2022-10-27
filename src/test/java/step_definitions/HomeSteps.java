@@ -4,10 +4,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
 
-public class HomeSteps {
+public class HomeSteps implements CommonPage {
     HomePage page;
 
     public HomeSteps(){
@@ -17,10 +19,6 @@ public class HomeSteps {
     @Given("User opens url of homepage")
     public void user_opens_url_of_homepage() {
         BrowserUtils.getDriver();
-    }
-    @Then("Verify title of page")
-    public void verify_title_of_page() {
-        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), "My Store");
     }
 
     @When("User clicks on search field")
@@ -37,4 +35,20 @@ public class HomeSteps {
     public void verifySearchButtonIsEnabled() {
         BrowserUtils.assertTrue(BrowserUtils.isEnabled(page.searchBtn));
     }
+
+
+    @When("User clicks on {string} button")
+    public void userClicksOnButton(String seleniumBtn) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement
+                (By.xpath(String.format(XPATH_TEMPLATE_LINKTEXT, seleniumBtn ))
+
+        ));
+    }
+
+    @Then("Verify title of page is {string}")
+    public void verifyTitleOfPageIs(String title){
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
 }
+
+
