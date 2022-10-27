@@ -23,3 +23,4 @@ Feature: homepage related scenarios
 
   @US004
   Scenario: Verify link texts under My account footer are displayed
+
